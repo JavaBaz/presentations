@@ -42,3 +42,16 @@ FROM STATION
 ORDER BY CityLength DESC, City
 LIMIT 1;
 ```
+
+OR
+
+```SQL
+SELECT City, CityLength
+FROM (
+    SELECT City, LENGTH(City) AS CityLength,
+           ROW_NUMBER() OVER (ORDER BY LENGTH(City), City) AS AscRank,
+           ROW_NUMBER() OVER (ORDER BY LENGTH(City) DESC, City) AS DescRank
+    FROM STATION
+) Ranked
+WHERE AscRank = 1 OR DescRank = 1;
+```
