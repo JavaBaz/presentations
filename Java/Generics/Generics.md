@@ -96,6 +96,8 @@ public class GenericsMethods {
 ---
 
 ### Wildcard in Java Generics
+we use Wildcards to put a restriction on our generics to control it and prevent unwanted business.
+we do it by using wildcard element.
 The ? (question mark) symbol represents the wildcard element. It means any type. If we write <? extends Number>, it means any child class of Number, e.g., Integer, Float, and double. Now we can call the method of Number class through any child class object.
 
 We can use a wildcard as a type of a parameter, field, return type, or local variable. However, ***it is not allowed to use a wildcard as a type argument for a generic method invocation, a generic class instance creation, or a supertype.***
